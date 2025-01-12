@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>danmu_sender说明</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E38691;
+            background-image: url('photos/background_lian.png');
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            width: 90%;
+            max-width: 1240px;
+            padding: 20px;
+            border-bottom: 1px solid #E38691;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1280px;
+            max-height: 600px;
+            border: 1px solid #E38691;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+        }
+
+        .sidebar,
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .sidebar {
+            border-right: 1px solid #E38691;
+        }
+
+        .footer-page {
+            width: 90%;
+            max-width: 1260px;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #E38691;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 顶部框 -->
+    <div class="header">
+        <h1>danmu_sender说明</h1>
+        <h2>config文件夹中存放的是配置表，存储有常用直播间和常用弹幕数据，还有弹幕样式和主题信息</h2>
+        <h2>photos文件夹中存放了所有需要用到的图片</h2>
+        <h2>务必保持exe程序和两个文件夹的相对位置关系，不要删除或修改config和photos两个文件夹中的任何内容</h2>
+        <h2>如有需要欢迎下载源码进行修改（可能需要安装python的第三方模块才能编译运行）</h2>
+    </div>
+
+    <!-- 双栏布局 -->
+    <div class="container">
+        <!-- 左侧框 -->
+        <div class="sidebar">
+            <h1>直播间保存</h1>
+
+            <h2>一、点击检查</h2>
+            <p>保证自己的网页端B站账号在登陆状态，在直播间中右键菜单中点击检查或按下F12</p>
+            <img src="photos/check.jpg" alt="点击检查" style="width: 400px; height: 400px;">
+
+            <h2>二、点击网络</h2>
+            <p>在检车的界面中点击网络（network）</p>
+            <img src="photos/network.jpg" alt="点击网络" style="width: 600px; height: 400px;">
+
+            <h2>三、找到send事件</h2>
+            <p>随便在直播间发一条弹幕，然后就能在检车面板的网络面板中找到send事件</p>
+            <img src="photos/send.jpg" alt="找到send事件" style="width: 600px; height: 400px;">
+
+            <h2>四、找到cookie</h2>
+            <p>向下拉动滚动条，找到cookie字符，将cookie后的字符全部复制到cookie框中</p>
+            <img src="photos/cookie.jpg" alt="找到cookie" style="width: 600px; height: 400px;">
+            <br></br>
+            <img src="photos/cookie_frame.jpg" alt="复制到cookie框中" style="width: 600px; height: 400px;">
+
+            <h2>五、找到 房间号、csrf、csrf_token</h2>
+            <p>点击负载（payload），向下拉动滚动条，找到roomid字符、csrf字符、csrf_token字符，将它们复制到对应的框中</p>
+            <img src="photos/payload.jpg" alt="找到cookie" style="width: 600px; height: 400px;">
+            <br></br>
+            <img src="photos/roomid_csrf_csrf_token_frame.jpg" alt="csrf和csrf_token好像是一样的，每个账号都不一样，确保账号处于登录状态" style="width: 600px; height: 400px;">
+            <br></br>
+            <br></br>
+            <p>
+                <span style="color: red; font-size: 20px;">点击保存设置，直播间就会显示在《常用直播间》列表下，最多保存20个</span>
+                <br></br>
+                <span style="color: red; font-size: 20px;">在常用直播间列表选中对应直播间，点击下方删除直播间将其删除</span>
+            </p>
+        </div>
+
+        <!-- 右侧框 -->
+        <div class="main-content">
+            <h1>弹幕功能</h1>
+
+            <h2>一、弹幕样式</h2>
+            <p>基本没用，颜色那个功能做多了，字体大小也没什么用，弹幕模式有三种，只有发送间隔有用以秒为单位</p>
+            <p>输入完成后点击设置间隔，提示成功后设置完成，点击查看弹幕模式说明后查看数字代表的弹幕模式</p>
+            <img src="photos/danmu.jpg" style="width: 600px; height: 400px;">
+
+            <h2>二、常用弹幕</h2>
+            <p>对应每个直播间可以保存20个常用弹幕，下方的添加弹幕可以添加常用弹幕到常用弹幕列表中，选中后点击删除弹幕可以删除对应的弹幕，双击对应弹幕可以将弹幕内容复制到弹幕内容框中</p>
+            <img src="photos/danmu_common.jpg" style="width: 600px; height: 400px;">
+
+            <h2>三、弹幕输入与发送</h2>
+            <p>在弹幕输入框中输入弹幕内容，点击下方开始发送，弹幕会按照设置的时间间隔进行循环发送，再点击一次停止发送</p>
+            <img src="photos/danmu_input.jpg"  style="width: 600px; height: 400px;">
+        </div>
+    </div>
+
+    <!-- 底部页面 -->
+    <div class="footer-page">
+        <h1>主题切换</h1>
+        <p>预设有五个主题</p>
+        <p>禧运红(#A50C12)  |  淡苹果绿(#A1D29A)  |  冰川湖泊(#A7C9D3)  |  浅梨粉(#E38691)  |  郁金(#E3BA09)</p>
+        <img src="photos/themes.jpeg" style="width: 1260px; height: 400px;">
+        <p>点击侧边对应按钮切换</p>
+        <img src="photos/theme_button.png" style="width: 100px; height: 400px;">
+    </div>
+
+</body>
+
+</html>
